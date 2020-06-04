@@ -1,0 +1,35 @@
+﻿@model EditMovieVM
+@{
+    ViewData["Title"] = "Edit";
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MovieModel.Id"/>
+            <div class="form-group">
+                <label asp-for="MovieModel.Title" class="control-label"></label>
+                <input asp-for="MovieModel.Title" class="form-control" />
+                <span asp-validation-for="MovieModel.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieModel.Description" class="control-label"></label>
+                <input asp-for="MovieModel.Description" class="form-control" />
+                <span asp-validation-for="MovieModel.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieModel.DirectorId" class="control-label"></label>
+                <select asp-for="MovieModel.DirectorId" asp-items="Model.Compenents.DirectorList" class="form-control"></select>
+                <span asp-validation-for="MovieModel.DirectorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

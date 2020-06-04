@@ -7,5 +7,6 @@ namespace Services.Contracts
 {
     public interface IMovieRepository : IRepositoryBase<Movie>
     {
+        IEnumerable<Movie> GetAllMovieWithDirector();
     }
 }

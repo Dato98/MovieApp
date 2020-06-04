@@ -8,5 +8,7 @@ namespace Services.Contracts
     public interface IPersonRepository : IRepositoryBase<Person>
     {
         Person GetPersonWithMovies(int id);
+
+        IEnumerable<Person> GetDirectors();
     }
 }

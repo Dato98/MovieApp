@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BLL.Interfaces;
+using BLL.Operations;
 using DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,8 +33,9 @@ namespace MovieApp
             services.AddDbContext<MovieDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MovieDB"))
             );
-
             services.AddScoped<IUOW, UOW>();
+            services.AddScoped<IMovieOperation, MovieOperation>();
+            services.AddAutoMapper(typeof(BLL.Mappings.MapProfile).Assembly);
             services.AddControllersWithViews();
         }
 

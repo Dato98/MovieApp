@@ -15,7 +15,10 @@ namespace Services.Repositories
             : base(context)
         { }
 
-
+        public IEnumerable<Person> GetDirectors()
+        {
+            return FindByCondition(x => x.IsDirector);
+        }
 
         public Person GetPersonWithMovies(int id)
         {

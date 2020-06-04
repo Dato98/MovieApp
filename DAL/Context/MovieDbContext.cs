@@ -58,6 +58,13 @@ namespace DAL.Context
                .HasMaxLength(50)
                .IsRequired();
 
+            modelBuilder.Entity<Person>()
+                .Property(e => e.IsDirector)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.IsActor)
+                .HasDefaultValue(false);
 
             modelBuilder.Entity<Person>()
              .Property(e => e.Lastname)

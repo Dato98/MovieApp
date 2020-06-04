@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,9 @@ namespace Services.Repositories
             : base(context)
         { }
 
-
-
+        public IEnumerable<Movie> GetAllMovieWithDirector()
+        {
+            return Context.Movies.Include(x => x.Director);
+        }
     }
 }
